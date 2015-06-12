@@ -1,0 +1,87 @@
+{%  load  staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <title>Linguist</title>
+  </head>
+
+  <body>
+  <div class = "div_top">
+    <h1>ABC Analyzer</h1>
+  </div>
+  
+
+  <div class = "div_general">
+    <form method="POST" action="/calculate/">
+      {% csrf_token %}
+      <div>
+        <label id = "label_standard">Please, copy your text in the field below:</label>
+        <p>
+        <textarea id = "textarea_standard" name="text_input" type="text" rows="20%" cols="80%">{{result.initial}}</textarea>
+      </div>
+      
+      <div>
+        <label>Set number of words:</label> 
+        <input name="show_words" type="number" min="1" max="1000" value="{{result.wordsInAnalysis}}" />
+        <p>
+      </div>
+      
+      <input type="submit" value="Calculate" />
+    </form>
+    <hr>
+    <p>
+    <div class = "div_report_2">
+      <h3>Summary:</h3>
+      The text above has <b>{{result.TotalWords}}</b> words in total. The sum of different words is <b>{{result.DiffWordsTotal}}</b>. We have used <b>{{result.wordsInAnalysis}}</b> words in our analysis. These words consist about <b>{{result.PercentUniqueWordsOverAllUnique}} % </b> of all words, used in the text. These <b>{{result.wordsInAnalysis}}</b> words are repeated <b>{{result.TopWordsNumber}}</b> times in the text. Finally, the usage of these <b>{{result.DiffWordsTotal}}</b> is about <b>{{result.PercentUniqueWordsUsedInTime}} %</b> from the text.
+    </div>
+    <p>
+
+    <p>
+    <div class = "div_report_1">
+      <label>Total Words:</label>
+      <p>
+      {{result.TotalWords}}
+    </div>
+    <p>
+    <p>
+      <div class = "div_report_2">
+        <label>Top words:</label>
+        <p>
+          {% for key, value in result.top %}
+            <li>{{ key}} - {{value}} </li>
+          {% endfor %}
+      </div>
+    <p>
+    <p>
+      <div class = "div_report_1">
+        <label>Sum of different words:</label>
+        <p>
+        {{result.DiffWordsTotal}}
+      </div>
+    <p>
+    <p>
+      <div class = "div_report_2">
+        <label>Top Words Number:</label>
+        <p>
+        {{result.TopWordsNumber}}
+      </div>
+    <p>
+    <p>
+      <div class = "div_report_1">
+        <label>Unique words / All Unique words:</label>
+        <p>
+        {{result.PercentUniqueWordsOverAllUnique}} %
+      </div>
+    <p>
+    <p>
+      <div class = "div_report_2">
+        <label>Unique words used in time:</label>
+        <p>
+        {{result.PercentUniqueWordsUsedInTime}} %
+      </div>
+    <p>
+  </div>
+</body>
+</html>

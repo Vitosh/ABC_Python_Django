@@ -1,0 +1,32 @@
+h1	{
+	font-family:	'Lobster',	cursive;
+	text-align: center;
+	color: navy;
+}
+
+body {
+  background-color: lightblue;
+}
+
+.div_top{
+	margin-top:	0;
+	padding:	20px	20px	20px	40px;
+    
+}
+.div_general {
+  margin:20px;
+  padding:20px;
+}
+#label_standard {
+  margin-bottom: 20px;
+}
+#textarea_standard {
+}
+.div_report_1 {
+  padding:10px;
+  background-color: lightgreen;
+}
+.div_report_2 {
+  padding:10px;
+  background-color: #ff9400;
+}
