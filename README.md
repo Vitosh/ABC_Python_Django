@@ -11,3 +11,5 @@ These are the screenshots from the first feature:
 And this is what you get when you scroll down:
 [![VitoshAcademy](http://www.vitoshacademy.com/wp-content/uploads/2015/06/AbcAnalysis2.png)](http://www.vitoshacademy.com/python-abc-analysis-for-linguists-in-django/
 )
+
+:cactus:
